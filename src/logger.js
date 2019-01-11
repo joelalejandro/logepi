@@ -79,16 +79,22 @@ const buildLogEntry = info => {
   return tags.join(" ");
 };
 
+const consoleTransport = new winston.transports.Console();
+
 const logger = winston.createLogger({
   level: "info",
   format: winston.format.combine(
     winston.format.timestamp(),
     winston.format.printf(info => buildLogEntry(info))
   ),
-  transports: [new winston.transports.Console()]
+  transports: [consoleTransport]
 });
 
 module.exports = class Log {
+  static setOutputLevel(logLevel) {
+    consoleTransport.level = logLevel;
+  }
+
   static message(logLevel, message, data = {}) {
     logger.log(logLevel, message, data);
   }

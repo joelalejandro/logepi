@@ -13,6 +13,8 @@ type LoggableData = { [key: string]: any };
 
 declare namespace Logepi {
   export class Log {
+    static setOutputLevel: (logLevel: LogLevel) => void;
+
     static message: (
       logLevel: LogLevel,
       message: string,

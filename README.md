@@ -71,6 +71,15 @@ Log.verbose("Now I'm all blah-by.", { tags: { process: "foo" } });
 Log.debug("I've said too much!", { tags: { process: "foo" } });
 ```
 
+### Setting up an output level
+
+In order to filter what messages are printed to the console transport, you can use the `Log.setOutputLevel()` method:
+
+```js
+// Limit messages to "error" level.
+Log.setOutputLevel("error");
+```
+
 ### Using the Koa middleware
 
 #### Import the library
