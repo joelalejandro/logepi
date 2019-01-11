@@ -10,8 +10,8 @@
   "homepage": "https://github.com/joelalejandro/logepi",
   "license": "MIT",
   "main": "src/index.js",
-  "types": "index.d.ts",
-  "typings": "index.d.ts",
+  "types": "src/index.d.ts",
+  "typings": "src/index.d.ts",
   "directories": {
     "lib": "src",
     "test": "test"
