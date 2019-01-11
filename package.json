@@ -1,6 +1,6 @@
 {
   "name": "logepi",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A tiny (Togepi-sized) package for logs, built on top of Winston.",
   "keywords": [
     "log",
