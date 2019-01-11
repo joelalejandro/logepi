@@ -35,10 +35,10 @@ There's also a [TypeScript declaration](./index.d.ts) file available for TS-base
 
 ```js
 // commonjs style
-const Log = require("logepi");
+const { Log } = require("logepi");
 
 // ES modules style
-import Log from "logepi";
+import { Log } from "logepi";
 ```
 
 #### Log an error
@@ -111,6 +111,52 @@ app
     .use(...)
     // ...make sure it's the *last* middleware...
     .use(ExpressLoggingMiddleware());
+```
+
+### Adding tags to logs
+
+Logepi offers a way to inject tagged data in a logline, with the format `[key:value]`. When logging, use the `tags` key on the `data` argument of any of the Log API methods. There's an example right in the next section.
+
+## How does it look?
+
+_**Note:** Logs are single-lined, but for clarity's sake, they're shown in multiple lines._
+
+### Manual logging
+
+```js
+Log.info("API is now ready", { tags: { port } });
+```
+
+outputs:
+
+```
+[timestamp:2019-01-11T21:04:41.915Z]
+[level:info]
+[message:API is now ready]
+[port:9000]
+```
+
+### Incoming request
+
+```
+[timestamp:2019-01-11T21:00:45.442Z]
+[level:info]
+[message:IncomingRequest]
+[url:/api/apps]
+[queryParams:undefined]
+[body:{}]
+[headers:{"host":"localhost:9000","connection":"keep-alive","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","accept-encoding":"gzip, deflate, br","accept-language":"es-ES,es;q=0.9,en;q=0.8,en-US;q=0.7"}]
+```
+
+### Outgoing response
+
+```
+[timestamp:2019-01-11T21:00:45.446Z]
+[level:info]
+[message:OutgoingResponse]
+[status:200]
+[body:{"ok":true,"data":{"foo":true}}]
+[headers:{"host":"localhost:9000","connection":"keep-alive","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","accept-encoding":"gzip, deflate, br","accept-language":"es-ES,es;q=0.9,en;q=0.8,en-US;q=0.7"}]
 ```
 
 ## Issues

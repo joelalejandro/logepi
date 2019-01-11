@@ -1,6 +1,6 @@
-import winston from "winston";
-import { basename } from "path";
-import { camelize, capitalize } from "ember-cli-string-utils";
+const winston = require("winston");
+const { basename } = require("path");
+const { camelize, capitalize } = require("ember-cli-string-utils");
 
 const tagString = (name, value) => `[${name}:${value}]`;
 const tagJson = (name, objectOrString) =>
@@ -88,7 +88,7 @@ const logger = winston.createLogger({
   transports: [new winston.transports.Console()]
 });
 
-export default class Log {
+module.exports = class Log {
   static message(logLevel, message, data = {}) {
     logger.log(logLevel, message, data);
   }
@@ -142,4 +142,4 @@ export default class Log {
   static debug(message, data) {
     Log.message("debug", message, data);
   }
-}
+};

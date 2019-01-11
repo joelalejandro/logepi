@@ -1,6 +1,6 @@
-import Log from "./logger";
+const Log = require("./logger");
 
-export default function ExpressLoggingMiddleware() {
+module.exports = function ExpressLoggingMiddleware() {
   return (req, res, next) => {
     Log.request(
       "info",
@@ -12,4 +12,4 @@ export default function ExpressLoggingMiddleware() {
     next();
     Log.response("info", res.status, res.body, res.headers);
   };
-}
+};

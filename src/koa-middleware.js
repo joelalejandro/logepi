@@ -1,6 +1,6 @@
-import Log from "./logger";
+const Log = require("./logger");
 
-export default function KoaLoggingMiddleware() {
+module.exports = function KoaLoggingMiddleware() {
   return async (ctx, next) => {
     Log.request(
       "info",
@@ -12,4 +12,4 @@ export default function KoaLoggingMiddleware() {
     next();
     Log.response("info", ctx.status, ctx.body, ctx.headers);
   };
-}
+};
