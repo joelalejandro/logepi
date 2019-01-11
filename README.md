@@ -161,7 +161,7 @@ outputs:
 
 ## Issues
 
-Feel free to report any [issues](./issues) and we'll figure out a way to make it work.
+Feel free to report any [issues](https://github.com/joelalejandro/logepi/issues) and we'll figure out a way to make it work.
 
 ## Want to contribute?
 
