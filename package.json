@@ -31,11 +31,13 @@
   },
   "dependencies": {
     "ember-cli-string-utils": "^1.1.0",
+    "lodash": "^4.17.11",
     "winston": "^3.1.0"
   },
   "devDependencies": {
     "@types/express": "^4.16.0",
     "@types/koa": "^2.0.48",
+    "@types/lodash": "^4.14.119",
     "jest": "^23.6.0"
   },
   "jest": {

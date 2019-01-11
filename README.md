@@ -80,6 +80,8 @@ In order to filter what messages are printed to the console transport, you can u
 Log.setOutputLevel("error");
 ```
 
+You can also use the `LogLevel` enum, with uppercased keys (`INFO`, `WARN`, `ERROR`, `VERBOSE`, `DEBUG`).
+
 ### Using the Koa middleware
 
 #### Import the library
@@ -125,6 +127,31 @@ app
 ### Adding tags to logs
 
 Logepi offers a way to inject tagged data in a logline, with the format `[key:value]`. When logging, use the `tags` key on the `data` argument of any of the Log API methods. There's an example right in the next section.
+
+### Configuring logging middlewares
+
+All middlewares expose the same configuration object:
+
+```js
+  /**
+   * Allows to configure log levels for requests and responses.
+   */
+  logLevels: {
+    /**
+     * Sets the log level for all incoming requests.
+     */
+    request: "info",
+
+    /**
+     * Sets the log level for all outgoing responses, according to their status code.
+     */
+    response: {
+      status2xx: "info",  // For 200-399 codes
+      status4xx: "warn",  // For 400-499 codes
+      status5xx: "error"  // For 500-599 codes
+    }
+  }
+```
 
 ## How does it look?
 

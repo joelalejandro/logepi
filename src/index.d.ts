@@ -12,6 +12,21 @@ declare namespace Logepi {
     DEBUG = "debug"
   }
 
+  export type ResponseLogLevelOptions = {
+    status2xx?: LogLevel;
+    status4xx?: LogLevel;
+    status5xx?: LogLevel;
+  };
+
+  export type LogLevelOptions = {
+    request?: LogLevel;
+    response?: ResponseLogLevelOptions;
+  };
+
+  export type LoggingMiddlewareOptions = {
+    logLevels?: LogLevelOptions;
+  };
+
   export class Log {
     static setOutputLevel: (logLevel: LogLevel) => void;
 
@@ -42,16 +57,13 @@ declare namespace Logepi {
     static debug: (message: string, data: LoggableData) => void;
   }
 
-  export function ExpressLoggingMiddleware(): (
-    req: Request,
-    res: Response,
-    next: NextFunction
-  ) => void;
+  export function ExpressLoggingMiddleware(
+    options?: LoggingMiddlewareOptions
+  ): (req: Request, res: Response, next: NextFunction) => void;
 
-  export function KoaLoggingMiddleware(): (
-    ctx: Context,
-    next: () => Promise<void>
-  ) => Promise<void>;
+  export function KoaLoggingMiddleware(
+    options?: LoggingMiddlewareOptions
+  ): (ctx: Context, next: () => Promise<void>) => Promise<void>;
 }
 
 export = Logepi;
