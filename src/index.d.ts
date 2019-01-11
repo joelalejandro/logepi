@@ -1,17 +1,17 @@
 import { Context } from "koa";
 import { Request, Response, NextFunction } from "express";
 
-declare enum LogLevel {
-  ERROR = "error",
-  WARN = "warn",
-  INFO = "info",
-  VERBOSE = "verbose",
-  DEBUG = "debug"
-}
-
 type LoggableData = { [key: string]: any };
 
 declare namespace Logepi {
+  export enum LogLevel {
+    ERROR = "error",
+    WARN = "warn",
+    INFO = "info",
+    VERBOSE = "verbose",
+    DEBUG = "debug"
+  }
+
   export class Log {
     static setOutputLevel: (logLevel: LogLevel) => void;
 
