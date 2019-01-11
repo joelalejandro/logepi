@@ -1,9 +1,5 @@
-import { Context as KoaContext } from "@types/koa";
-import {
-  Request as ExpressRequest,
-  Response as ExpressResponse,
-  NextFunction as ExpressNextFunction
-} from "@types/express";
+import { Context } from "koa";
+import { Request, Response, NextFunction } from "express";
 
 declare enum LogLevel {
   ERROR = "error",
@@ -13,10 +9,9 @@ declare enum LogLevel {
   DEBUG = "debug"
 }
 
-export = Log;
-export type LoggableData = { [key: string]: any };
+type LoggableData = { [key: string]: any };
 
-declare class Log {
+export default class Log {
   static message(logLevel: LogLevel, message: string, data: LoggableData): void;
   static request(
     logLevel: LogLevel,
@@ -40,13 +35,13 @@ declare class Log {
   static debug(message: string, data: LoggableData): void;
 }
 
-declare function ExpressLoggingMiddleware(): (
-  req: ExpressRequest,
-  res: ExpressResponse,
-  next: ExpressNextFunction
+export function ExpressLoggingMiddleware(): (
+  req: Request,
+  res: Response,
+  next: NextFunction
 ) => void;
 
-declare function KoaLoggingMiddleware(): (
-  ctx: KoaContext,
+export function KoaLoggingMiddleware(): (
+  ctx: Context,
   next: () => Promise<void>
 ) => Promise<void>;
