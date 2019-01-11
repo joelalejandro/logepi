@@ -10,6 +10,8 @@
   "homepage": "https://github.com/joelalejandro/logepi",
   "license": "MIT",
   "main": "src/index.js",
+  "types": "index.d.ts",
+  "typings": "index.d.ts",
   "directories": {
     "lib": "src",
     "test": "test"
@@ -33,6 +35,8 @@
     "winston": "^3.1.0"
   },
   "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/koa": "^2.0.48",
     "jest": "^23.6.0"
   },
   "jest": {
