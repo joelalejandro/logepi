@@ -6,7 +6,7 @@ module.exports = function KoaLoggingMiddleware(settings = {}) {
   const options = _.merge({ ...defaultMiddlewareSettings }, settings);
   return async (ctx, next) => {
     Log.request(
-      settings.logLevels.request,
+      options.logLevels.request,
       ctx.request.url,
       ctx.request.params,
       JSON.stringify(ctx.request.body),

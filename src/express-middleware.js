@@ -6,7 +6,7 @@ module.exports = function ExpressLoggingMiddleware(settings = {}) {
   const options = _.merge({ ...defaultMiddlewareSettings }, settings);
   return (req, res, next) => {
     Log.request(
-      logLevel,
+      options.logLevels.request,
       req.url,
       req.params,
       JSON.stringify(req.body),
