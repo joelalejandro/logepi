@@ -50,11 +50,11 @@ declare namespace Logepi {
       headers: LoggableData,
       data: LoggableData
     ) => void;
-    static error: (message: string, data: LoggableData) => void;
-    static warn: (message: string, data: LoggableData) => void;
-    static info: (message: string, data: LoggableData) => void;
-    static verbose: (message: string, data: LoggableData) => void;
-    static debug: (message: string, data: LoggableData) => void;
+    static error: (message: string, data?: LoggableData) => void;
+    static warn: (message: string, data?: LoggableData) => void;
+    static info: (message: string, data?: LoggableData) => void;
+    static verbose: (message: string, data?: LoggableData) => void;
+    static debug: (message: string, data?: LoggableData) => void;
   }
 
   export function ExpressLoggingMiddleware(
