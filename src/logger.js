@@ -129,23 +129,23 @@ module.exports = class Log {
     );
   }
 
-  static error(message, data) {
+  static error(message, data = {}) {
     Log.message("error", message, data);
   }
 
-  static warn(message, data) {
+  static warn(message, data = {}) {
     Log.message("warn", message, data);
   }
 
-  static info(message, data) {
+  static info(message, data = {}) {
     Log.message("info", message, data);
   }
 
-  static verbose(message, data) {
+  static verbose(message, data = {}) {
     Log.message("verbose", message, data);
   }
 
-  static debug(message, data) {
+  static debug(message, data = {}) {
     Log.message("debug", message, data);
   }
 };
