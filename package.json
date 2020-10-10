@@ -24,21 +24,23 @@
     "url": "git+https://github.com/joelalejandro/logepi.git"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "prepublishOnly": "cjs2esm"
   },
   "bugs": {
     "url": "https://github.com/joelalejandro/logepi/issues"
   },
   "dependencies": {
     "ember-cli-string-utils": "^1.1.0",
-    "lodash": "^4.17.11",
-    "winston": "^3.1.0"
+    "lodash": "^4.17.20",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
-    "@types/express": "^4.16.0",
-    "@types/koa": "^2.0.48",
-    "@types/lodash": "^4.14.119",
-    "jest": "^24.8.0"
+    "@types/express": "^4.17.8",
+    "@types/koa": "^2.11.4",
+    "@types/lodash": "^4.14.161",
+    "cjs2esm": "^1.1.0",
+    "jest": "^26.5.2"
   },
   "jest": {
     "bail": true,

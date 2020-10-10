@@ -1,6 +1,8 @@
 const winston = require("winston");
 const { basename } = require("path");
-const { camelize, capitalize } = require("ember-cli-string-utils");
+const emberCLIStringUtils = require("ember-cli-string-utils");
+
+const { camelize, capitalize } = emberCLIStringUtils;
 
 const tagString = (name, value) => `[${name}:${value}]`;
 const tagJson = (name, objectOrString) =>
